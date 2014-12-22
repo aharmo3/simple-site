@@ -3,16 +3,23 @@
   <title></title>
 </head>
 <body>
-  <p>Hello Universe!</p>
-  <button id="btn">Button</button>
+  <p class="par">Hello Universe!</p>
+  <button id="btn">Quote Button</button>
+  <button id="btn2">Joke Button</button>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  // <script>
+  <script>
   $(document).ready(function() {
-    $("#btn").click(function() {
-      $.get("./inspiration", function(response) {
-        $("body").text(response);
-      })
-    })
+   $("#btn").click(function() {
+
+    var url = "./inspiration";
+
+    if ($(this).attr("id") === "btn2") {
+      url = "./joke";
+    }
+    
+    $.get(url, function(response) {
+         $(".par").text(response);
+    });
   });
   </script>
 </body>
