@@ -1,15 +1,14 @@
 <html>
 <head>
   <title></title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body>
-  <p class="par">Hello Universe!</p>
+  <p id="ajax-text"></p>
   <button id="btn">Quote Button</button>
   <button id="btn2">Joke Button</button>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
-  $(document).ready(function() {
-   $("#btn").click(function() {
+   $("button").click(function() {
 
     var url = "./inspiration";
 
@@ -18,8 +17,13 @@
     }
     
     $.get(url, function(response) {
-         $(".par").text(response);
-    });
+        console.log()
+        if(typeof response === 'object'){
+         $("#ajax-text").text(response.setup);
+    } else {
+          $("#ajax-text").text(response);
+    }
+  });
   });
   </script>
 </body>

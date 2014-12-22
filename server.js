@@ -6,7 +6,7 @@ var express = require("express");
   });
 
   console.log("Server starting.Right now");
-  app.listen(3000);	
+  http.createServer(app).listen(process.env.PORT || 3000);	
 
   app.get("/inspiration", function(req,res){
   	var array = ["It's a beautiful Day!","Life isn't about getting and having, it is about being","We become what we think about"];
@@ -30,7 +30,7 @@ var express = require("express");
 	  	}
   	];
   	var randomIndex = Math.floor(Math.random() * jokes.length);
-  	res.send(jokes[randomIndex].punchline +'<br>' + jokes[randomIndex].setup);
+  	res.send(jokes[randomIndex]);
   });
 
 
