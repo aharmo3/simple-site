@@ -1,1 +1,19 @@
-skdjfados;f
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <p>Hello Universe!</p>
+  <button id="btn">Button</button>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  // <script>
+  $(document).ready(function() {
+    $("#btn").click(function() {
+      $.get("./inspiration", function(response) {
+        $("body").text(response);
+      })
+    })
+  });
+  </script>
+</body>
+</html>

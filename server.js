@@ -1,7 +1,7 @@
 var express = require("express");
   app = express();
 
-  app.get("/", function(req, res) {
+  app.get("/amber", function(req, res) {
   	res.send("Hello Universe");
   });
 
@@ -32,5 +32,12 @@ var express = require("express");
   	var randomIndex = Math.floor(Math.random() * jokes.length);
   	res.send(jokes[randomIndex].punchline +'<br>' + jokes[randomIndex].setup);
   });
+
+
+  app.get("/", function(req, res) {
+    res.sendfile("./hello.html");
+  });
+
+
 
  
